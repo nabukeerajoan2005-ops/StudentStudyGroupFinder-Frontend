@@ -1,0 +1,188 @@
+/* Auth.css  –  Shared styles for Login and Register pages */
+
+/* ── Split-screen layout ─────────────────────────────────────── */
+.auth-page {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Left hero panel ─────────────────────────────────────────── */
+.auth-hero {
+  flex: 1;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(0, 229, 160, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 80%, rgba(255, 179, 71, 0.12) 0%, transparent 55%),
+    linear-gradient(160deg, #0d1628 0%, #07090f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative grid overlay on the hero */
+.auth-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.auth-hero--register {
+  background:
+    radial-gradient(ellipse at 60% 10%, rgba(255, 179, 71, 0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 90%, rgba(0, 229, 160, 0.12) 0%, transparent 55%),
+    linear-gradient(160deg, #0d1628 0%, #07090f 100%);
+}
+
+.auth-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+}
+
+.auth-logo {
+  font-size: 3.5rem;
+  margin-bottom: var(--space-6);
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+.auth-hero-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-5);
+}
+
+.text-accent { color: var(--accent); }
+
+.auth-hero-sub {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-8);
+}
+
+.auth-hero-stats {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+}
+.hero-stat strong {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+.hero-stat span {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.auth-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.auth-features li {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ── Right form panel ────────────────────────────────────────── */
+.auth-form-panel {
+  width: 520px;
+  flex-shrink: 0;
+  background: var(--bg-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  border-left: 1px solid var(--border);
+}
+
+.auth-form-card {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.auth-form-header h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+.auth-form-header p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: var(--space-1);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Two-column form row */
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.auth-form-footer {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.auth-form-footer a {
+  color: var(--accent);
+  font-weight: 600;
+}
+.admin-hint {
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+.font-mono { font-family: var(--font-mono); }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .auth-hero { display: none; }
+  .auth-form-panel {
+    width: 100%;
+    border-left: none;
+    padding: var(--space-6) var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .form-row-2 { grid-template-columns: 1fr; }
+}

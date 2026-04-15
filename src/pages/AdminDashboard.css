@@ -1,0 +1,224 @@
+/* AdminDashboard.css */
+
+/* ── Admin Header ─────────────────────────────────────────── */
+.admin-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.admin-header-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.admin-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.admin-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: linear-gradient(135deg, rgba(255,179,71,0.15), rgba(255,179,71,0.05));
+  border: 1px solid rgba(255,179,71,0.3);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 1.2rem;
+  color: var(--secondary);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* ── Stats grid ───────────────────────────────────────────── */
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+/* ── Section navigation tabs ──────────────────────────────── */
+.admin-nav {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: -2px;
+}
+
+.admin-nav-btn {
+  padding: 0.65rem 1.2rem;
+  background: none;
+  border: none;
+  font-family: var(--font-base);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: var(--transition);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+.admin-nav-btn:hover { color: var(--text-primary); background: var(--bg-hover); }
+.admin-nav-btn--active { color: var(--accent); border-bottom-color: var(--accent); }
+
+.admin-section {
+  animation: pageIn 0.3s var(--ease);
+}
+
+/* ── Course Bar Chart ─────────────────────────────────────── */
+.course-bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.course-bar-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 80px;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.course-bar-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.course-bar-code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.course-bar-name {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.course-bar-track {
+  height: 10px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.course-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--secondary));
+  border-radius: var(--radius-full);
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 4px;
+}
+
+.course-bar-count {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ── Admin Data Table ─────────────────────────────────────── */
+.admin-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.admin-table thead th {
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  padding: var(--space-4) var(--space-5);
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.admin-table tbody tr:last-child { border-bottom: none; }
+
+.admin-table tbody tr:hover {
+  background: var(--bg-hover);
+}
+
+.admin-table td {
+  padding: var(--space-4) var(--space-5);
+  vertical-align: middle;
+  color: var(--text-primary);
+}
+
+.td-num { color: var(--text-muted); font-size: 0.78rem; }
+
+.td-name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.td-avatar {
+  width: 30px; height: 30px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--accent), var(--secondary));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #07090f;
+  flex-shrink: 0;
+}
+
+.td-muted { color: var(--text-secondary); }
+
+.td-course {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.font-mono { font-family: var(--font-mono); }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .admin-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .admin-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .course-bar-row { grid-template-columns: 140px 1fr 60px; }
+  .admin-nav { overflow-x: auto; }
+}
+
+@media (max-width: 480px) {
+  .admin-stats-grid { grid-template-columns: 1fr 1fr; }
+}
